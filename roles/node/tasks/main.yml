@@ -1,0 +1,18 @@
+---
+
+- name: Clone node version manager
+  git:
+    repo: "{{ github }}creationix/nvm.git"
+    dest: "{{ nvm_home }}"
+    accept_hostkey: yes
+  ignore_errors: yes
+
+- name: Add default packages
+  template:
+    src: default-packages.j2
+    dest: "{{ nvm_home }}/default-packages"
+
+- name: Install latest node version
+  shell: "{{ init_nvm }} && nvm install node"
+  register: nvm_result
+  changed_when: "'is already installed' not in nvm_result.stderr"

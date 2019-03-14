@@ -9,9 +9,9 @@ osascript -e 'tell application "System Preferences" to quit'
 # Ask for the administrator password upfront
 sudo -v
 
-###############################################################################
-# General UI/UX                                                               #
-###############################################################################
+#########################################################################################################
+# General UI/UX                                                                                         #
+#########################################################################################################
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -47,9 +47,9 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryCli
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
-###############################################################################
-# Screen                                                                      #
-###############################################################################
+########################################################################################################
+# Screen                                                                                               #
+########################################################################################################
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
@@ -62,9 +62,9 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 # Enable HiDPI display modes (requires restart)
 # sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
-###############################################################################
-# Dock, Dashboard, and hot corners                                            #
-###############################################################################
+########################################################################################################
+# Dock, Dashboard, and hot corners                                                                     #
+########################################################################################################
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -80,9 +80,9 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-###############################################################################
-# Safari & WebKit                                                             #
-###############################################################################
+########################################################################################################
+# Safari & WebKit                                                                                      #
+########################################################################################################
 
 # Privacy: don’t send search queries to Apple
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
@@ -107,9 +107,9 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 # Update extensions automatically
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
-###############################################################################
-# Time Machine                                                                #
-###############################################################################
+########################################################################################################
+# Time Machine                                                                                         #
+########################################################################################################
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -117,9 +117,9 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
-###############################################################################
-# Activity Monitor                                                            #
-###############################################################################
+########################################################################################################
+# Activity Monitor                                                                                     #
+########################################################################################################
 
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
@@ -134,9 +134,9 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
-###############################################################################
-# Mac App Store                                                               #
-###############################################################################
+########################################################################################################
+# Mac App Store                                                                                        #
+########################################################################################################
 
 # Enable the automatic update check
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
@@ -156,15 +156,15 @@ defaults write com.apple.commerce AutoUpdate -bool true
 # Allow the App Store to reboot machine on macOS updates
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
-###############################################################################
-# Photos                                                                      #
-###############################################################################
+########################################################################################################
+# Photos                                                                                               #
+########################################################################################################
 
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-###############################################################################
-# Finish                                                                      #
-###############################################################################
+########################################################################################################
+# Finish                                                                                               #
+########################################################################################################
 
 echo "Done. Note that some of these changes require application restart or logout/restart to take effect."
