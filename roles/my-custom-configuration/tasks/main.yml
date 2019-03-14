@@ -1,0 +1,19 @@
+- name: Perform upgrade
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Install tools
+  homebrew:
+    name:
+      - kubernetes-helm
+      - kubectx
+      - kubernetes-cli
+    state: latest
+
+- name: Install tools
+  homebrew_cask:
+    name:
+      - minikube
+    state: latest
+  ignore_erros: true
