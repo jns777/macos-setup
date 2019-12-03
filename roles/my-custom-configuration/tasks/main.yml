@@ -5,15 +5,35 @@
 
 - name: Install tools
   homebrew:
-    name:
-      - kubernetes-helm
-      - kubectx
-      - kubernetes-cli
+    name: "{{ item }}"
     state: latest
-
+  with_items: 
+    - 'kubernetes-helm'
+    - 'kubernetes-cli'
+    - 'coreutils'
+    - 'packer'
+    - 'awscli'
+    - dep'
+    - 'postgresql'
+    - 'terraform'
+    - 'wine'
+    - 'circleci'
+    - "md5sum"
+    - "xcode-select"
+    - "psql"
+    - "postgresql"
+    - "xquartz"
+    - "awless"
+    
 - name: Install tools
   homebrew_cask:
-    name:
-      - minikube
+    name: "{{ item }}"
     state: latest
-  ignore_erros: true
+  with_items:
+    - homebrew_cask
+    - xquartz
+  ignore_errors: true
+
+- name: configure via cli
+  shell: "{{ item }}"
+  with_items: "{{ extra_commands }}"
